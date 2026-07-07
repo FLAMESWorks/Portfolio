@@ -19,6 +19,41 @@ Hi, I'm 19 years old and a computer science student with 3 to 4 years of experie
 • Big tasks - $100 - $200
 • Full game scripting - $1000 - inf
 
+## Portfolio Projects
+
+### 🖱️ Clicker System
+- Auto Click
+- Multipliers
+- Leaderstats
+- Optimized scripting
+
+### 🔄 Rebirth System
+- Rebirth requirements
+- Rewards
+- Animations
+- Data saving
+
+### 💾 Data Saving
+- DataStoreService
+- Auto Save
+- Auto Load
+- Error handling
+
+### 🛒 Shop System
+- Currency purchases
+- Gamepass support
+- Developer Products
+
+---
+
+## Services
+
+- Simulator systems
+- GUI scripting
+- Gameplay mechanics
+- Bug fixing
+- Custom systems
+
 𝐏𝐀𝐘𝐌𝐄𝐍𝐓:
 • I always get partial upfront before I start working to prevent time wasters and scams
 
@@ -47,4 +82,4 @@ None
 Contact
 🅰️ - @trader_new2026
 
-
+GITHUB - https://github.com/FLAMESWorks/Portfolio/edit/main/README.md
