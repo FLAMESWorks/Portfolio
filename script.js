@@ -1,129 +1,267 @@
+// ============================
+// Typing Animation
+// ============================
+
 const words = [
     "Roblox Scripter",
     "Lua Developer",
-    "System Designer",
-    "UI Animator"
+    "Gameplay Programmer",
+    "UI Animator",
+    "System Designer"
 ];
-
-let wordIndex = 0;
-let charIndex = 0;
-let deleting = false;
 
 const typing = document.querySelector(".typing");
 
-function type(){
+let word = 0;
+let letter = 0;
+let deleting = false;
 
-    const current = words[wordIndex];
+function typeEffect(){
+
+    if(!typing) return;
+
+    let current = words[word];
 
     if(!deleting){
 
-        typing.textContent = current.substring(0,charIndex++);
-        
-        if(charIndex > current.length){
+        typing.textContent = current.substring(0,letter++);
+
+        if(letter > current.length){
+
             deleting = true;
-            setTimeout(type,1500);
+
+            setTimeout(typeEffect,1500);
+
             return;
+
         }
 
     }else{
 
-        typing.textContent = current.substring(0,charIndex--);
+        typing.textContent = current.substring(0,letter--);
 
-        if(charIndex < 0){
+        if(letter < 0){
+
             deleting = false;
-            wordIndex++;
 
-            if(wordIndex >= words.length){
-                wordIndex = 0;
-            }
+            word++;
+
+            if(word >= words.length)
+                word = 0;
+
         }
 
     }
 
-    setTimeout(type,deleting ? 50 : 100);
+    setTimeout(typeEffect,deleting ? 45 : 100);
 
 }
 
-type();
+typeEffect();
+
+
+// ============================
+// Cursor Glow
+// ============================
 
 const cursor = document.querySelector(".cursor");
 
 document.addEventListener("mousemove",(e)=>{
 
-    cursor.style.left = e.clientX + "px";
-    cursor.style.top = e.clientY + "px";
+    if(cursor){
+
+        cursor.style.left = e.clientX+"px";
+        cursor.style.top = e.clientY+"px";
+
+    }
 
 });
 
-const observer = new IntersectionObserver(entries=>{
 
-    entries.forEach(entry=>{
-
-        if(entry.isIntersecting){
-
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0px)";
-
-        }
-
-    });
-
-},{
-    threshold:.2
-});
-
-document.querySelectorAll("section").forEach(sec=>{
-
-    sec.style.opacity="0";
-    sec.style.transform="translateY(80px)";
-    sec.style.transition=".8s";
-
-    observer.observe(sec);
-
-});
+// ============================
+// Create Stars
+// ============================
 
 const particles = document.getElementById("particles");
 
-for(let i=0;i<70;i++){
+if(particles){
 
-    const star=document.createElement("span");
+for(let i=0;i<250;i++){
 
-    star.style.position="fixed";
-    star.style.width=Math.random()*4+2+"px";
-    star.style.height=star.style.width;
-    star.style.background="white";
-    star.style.borderRadius="50%";
+    const star=document.createElement("div");
+
+    star.className="star";
+
+    let size=Math.random()*3+1;
+
+    star.style.width=size+"px";
+    star.style.height=size+"px";
+
     star.style.left=Math.random()*100+"vw";
     star.style.top=Math.random()*100+"vh";
-    star.style.opacity=Math.random();
 
-    star.style.animation=
-    "floatStar "+(6+Math.random()*10)+"s linear infinite";
+    star.style.animationDuration=
+    (2+Math.random()*5)+"s";
 
     particles.appendChild(star);
 
 }
 
-const style=document.createElement("style");
+}
 
-style.innerHTML=`
 
-@keyframes floatStar{
+// ============================
+// Shooting Stars
+// ============================
 
-0%{
+function shootingStar(){
 
-transform:translateY(0px);
+    if(!particles) return;
+
+    const star=document.createElement("div");
+
+    star.className="shooting";
+
+    star.style.left=Math.random()*20+"vw";
+    star.style.top=Math.random()*40+"vh";
+
+    particles.appendChild(star);
+
+    setTimeout(()=>{
+
+        star.remove();
+
+    },4000);
 
 }
 
-100%{
+setInterval(shootingStar,2500);
 
-transform:translateY(-1200px);
+
+// ============================
+// Scroll Reveal
+// ============================
+
+const reveals=document.querySelectorAll(
+
+".glass,.card,.skill,.section-title"
+
+);
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity="1";
+
+entry.target.style.transform="translateY(0px)";
 
 }
 
+});
+
+},{threshold:.2});
+
+reveals.forEach(el=>{
+
+el.style.opacity="0";
+
+el.style.transform="translateY(80px)";
+
+el.style.transition=".8s";
+
+observer.observe(el);
+
+});
+
+
+// ============================
+// Navbar Scroll Effect
+// ============================
+
+const nav=document.querySelector("nav");
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>50){
+
+nav.style.background="rgba(5,8,22,.85)";
+nav.style.backdropFilter="blur(20px)";
+
+}else{
+
+nav.style.background="rgba(5,8,22,.45)";
+
 }
 
-`;
+});
 
-document.head.appendChild(style);
+
+// ============================
+// Card Tilt Effect
+// ============================
+
+const cards=document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+
+card.addEventListener("mousemove",(e)=>{
+
+const rect=card.getBoundingClientRect();
+
+const x=e.clientX-rect.left;
+const y=e.clientY-rect.top;
+
+const rotateY=((x/rect.width)-0.5)*18;
+const rotateX=((y/rect.height)-0.5)*-18;
+
+card.style.transform=
+`perspective(1000px)
+rotateX(${rotateX}deg)
+rotateY(${rotateY}deg)
+translateY(-12px)`;
+
+});
+
+card.addEventListener("mouseleave",()=>{
+
+card.style.transform="perspective(1000px) rotateX(0) rotateY(0)";
+
+});
+
+});
+
+
+// ============================
+// Smooth Fade
+// ============================
+
+window.addEventListener("load",()=>{
+
+document.body.style.opacity="1";
+
+});
+
+
+// ============================
+// Floating Animation
+// ============================
+
+const profile=document.querySelector(".profile-card");
+
+if(profile){
+
+let angle=0;
+
+setInterval(()=>{
+
+angle+=0.02;
+
+profile.style.transform=
+`translateY(${Math.sin(angle)*10}px)`;
+
+},20);
+
+}
