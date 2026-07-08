@@ -1,335 +1,345 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FLAMESWorks Portfolio</title>
+
+<title>FLAMESWorks | Roblox Scripter</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
-body{
-    background:#0d1117;
-    color:white;
-}
-
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-}
-
-header{
-    padding:80px 0;
-    text-align:center;
-}
-
-.profile{
-    width:160px;
-    height:160px;
-    border-radius:50%;
-    border:5px solid #58a6ff;
-    object-fit:cover;
-    margin-bottom:20px;
-}
-
-h1{
-    font-size:50px;
-}
-
-.subtitle{
-    color:#8b949e;
-    margin-top:10px;
-    font-size:20px;
-}
-
-.buttons{
-    margin-top:30px;
-}
-
-.btn{
-    display:inline-block;
-    padding:14px 30px;
-    margin:10px;
-    border-radius:8px;
-    text-decoration:none;
-    transition:.3s;
-    font-weight:600;
-}
-
-.primary{
-    background:#238636;
-    color:white;
-}
-
-.primary:hover{
-    background:#2ea043;
-}
-
-.secondary{
-    border:2px solid #58a6ff;
-    color:#58a6ff;
-}
-
-.secondary:hover{
-    background:#58a6ff;
-    color:black;
-}
-
-section{
-    margin:80px 0;
-}
-
-.section-title{
-    font-size:35px;
-    margin-bottom:25px;
-    color:#58a6ff;
-}
-
-.about{
-    background:#161b22;
-    padding:30px;
-    border-radius:15px;
-    line-height:1.8;
-}
-
-.skills{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:20px;
-}
-
-.skill{
-    background:#161b22;
-    padding:25px;
-    text-align:center;
-    border-radius:12px;
-    transition:.3s;
-}
-
-.skill:hover{
-    transform:translateY(-8px);
-    background:#21262d;
-}
-
-.projects{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:25px;
-}
-
-.project{
-    background:#161b22;
-    border-radius:15px;
-    overflow:hidden;
-    transition:.3s;
-}
-
-.project:hover{
-    transform:translateY(-10px);
-}
-
-.project img{
-    width:100%;
-    height:180px;
-    object-fit:cover;
-}
-
-.project-content{
-    padding:20px;
-}
-
-.project h3{
-    margin-bottom:10px;
-}
-
-.project p{
-    color:#8b949e;
-    margin-bottom:20px;
-}
-
-.project a{
-    color:#58a6ff;
-    text-decoration:none;
-}
-
-footer{
-    text-align:center;
-    padding:40px;
-    color:#8b949e;
-    border-top:1px solid #30363d;
-    margin-top:80px;
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
 
-<div class="container">
+<div class="cursor"></div>
 
-<header>
+<div id="particles"></div>
 
-<img class="profile" src="https://via.placeholder.com/200" alt="Profile">
+<nav>
+
+<div class="logo">
+FLAMES<span>Works</span>
+</div>
+
+<ul>
+
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<section class="hero" id="home">
+
+<div class="hero-left">
+
+<h3>Hello, I'm</h3>
 
 <h1>FLAMESWorks</h1>
 
-<p class="subtitle">
-Roblox Scripter • Lua Developer • UI Animations • Systems
+<h2>
+<span class="typing"></span>
+</h2>
+
+<p>
+
+Passionate Roblox Developer creating polished gameplay systems with Lua,
+DataStores, UI animations, and optimized game mechanics.
+
 </p>
 
 <div class="buttons">
-<a href="https://github.com/FLAMESWorks" class="btn primary">GitHub</a>
-<a href="#" class="btn secondary">Discord</a>
+
+<a href="#projects" class="btn">View Projects</a>
+
+<a href="https://github.com/FLAMESWorks" class="btn secondary">
+GitHub
+</a>
+
 </div>
 
-</header>
+</div>
 
-<section>
+<div class="hero-right">
 
-<h2 class="section-title">About Me</h2>
+<div class="profile-card">
 
-<div class="about">
+<div class="glow"></div>
 
-<p>
-Hello! I'm a Roblox developer specializing in creating high-quality gameplay systems using Lua.
-</p>
+<img src="images/profile.png">
 
-<br>
-
-<p>
-I build:
-</p>
-
-<br>
-
-<ul style="margin-left:20px;">
-<li>Simulator Systems</li>
-<li>Inventory Systems</li>
-<li>DataStore Saving</li>
-<li>Rebirth Systems</li>
-<li>Shops</li>
-<li>Trading</li>
-<li>UI Animations</li>
-<li>TweenService Effects</li>
-<li>Leaderboards</li>
-<li>Gamepasses</li>
-<li>Developer Products</li>
-</ul>
+</div>
 
 </div>
 
 </section>
 
-<section>
+<section id="about">
 
-<h2 class="section-title">Skills</h2>
+<div class="section-title">
+
+<h2>About Me</h2>
+
+<p>
+Building high-quality Roblox experiences with clean code and polished gameplay.
+</p>
+
+</div>
+
+<div class="about-grid">
+
+<div class="glass">
+
+<h3>Who Am I?</h3>
+
+<p>
+
+I'm a Roblox Lua developer focused on creating
+professional systems for simulators, tycoons and adventure games.
+
+</p>
+
+</div>
+
+<div class="glass">
+
+<h3>Experience</h3>
+
+<p>
+
+✔ DataStores<br>
+✔ TweenService<br>
+✔ Rebirth Systems<br>
+✔ Inventory Systems<br>
+✔ Shops<br>
+✔ UI Animations
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="skills">
+
+<div class="section-title">
+
+<h2>Skills</h2>
+
+</div>
 
 <div class="skills">
 
 <div class="skill">
-<h3>Lua</h3>
-<p>★★★★★</p>
+
+<div class="skill-name">
+
+Lua
+
+<span>95%</span>
+
+</div>
+
+<div class="bar">
+
+<div class="fill lua"></div>
+
+</div>
+
 </div>
 
 <div class="skill">
-<h3>Roblox Studio</h3>
-<p>★★★★★</p>
+
+<div class="skill-name">
+
+Roblox Studio
+
+<span>96%</span>
+
+</div>
+
+<div class="bar">
+
+<div class="fill studio"></div>
+
+</div>
+
 </div>
 
 <div class="skill">
-<h3>UI Animation</h3>
-<p>★★★★★</p>
+
+<div class="skill-name">
+
+DataStores
+
+<span>92%</span>
+
+</div>
+
+<div class="bar">
+
+<div class="fill datastore"></div>
+
+</div>
+
 </div>
 
 <div class="skill">
-<h3>DataStores</h3>
-<p>★★★★★</p>
+
+<div class="skill-name">
+
+TweenService
+
+<span>94%</span>
+
 </div>
 
-<div class="skill">
-<h3>TweenService</h3>
-<p>★★★★★</p>
+<div class="bar">
+
+<div class="fill tween"></div>
+
 </div>
 
-<div class="skill">
-<h3>RemoteEvents</h3>
-<p>★★★★★</p>
 </div>
 
 </div>
 
 </section>
 
-<section>
+<section id="projects">
 
-<h2 class="section-title">Projects</h2>
+<div class="section-title">
+
+<h2>Featured Projects</h2>
+
+</div>
 
 <div class="projects">
 
-<div class="project">
+<div class="card">
 
-<img src="https://via.placeholder.com/500x250" alt="">
+<img src="images/project1.png">
 
-<div class="project-content">
+<div class="content">
 
-<h3>Moon Dust Simulator</h3>
+<h3>1 Mine Per Click</h3>
 
 <p>
-Simulator with rebirths, pets, upgrades, UI animations, and DataStore saving.
+
+Modern simulator featuring:
+
+Clicking
+
+Rebirths
+
+Data Saving
+
+UI Animations
+
+Upgrades
+
 </p>
 
-<a href="#">View Project →</a>
+<a href="#">View →</a>
 
 </div>
 
 </div>
 
-<div class="project">
+<div class="card">
 
-<img src="https://via.placeholder.com/500x250" alt="">
+<img src="images/project2.png">
 
-<div class="project-content">
+<div class="content">
 
 <h3>Inventory System</h3>
 
 <p>
-Advanced inventory with rarity, equip system, and item management.
+
+Custom inventory with
+rarity,
+equip,
+sorting,
+saving,
+animations.
+
 </p>
 
-<a href="#">View Project →</a>
+<a href="#">View →</a>
 
 </div>
 
 </div>
 
-<div class="project">
+<div class="card">
 
-<img src="https://via.placeholder.com/500x250" alt="">
+<img src="images/project3.png">
 
-<div class="project-content">
+<div class="content">
 
 <h3>Shop System</h3>
 
 <p>
-Gamepass shop, developer products, upgrades, and clean UI.
+
+Developer Products,
+Gamepasses,
+Purchases,
+Effects,
+Saving.
+
 </p>
 
-<a href="#">View Project →</a>
+<a href="#">View →</a>
 
 </div>
 
 </div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<div class="section-title">
+
+<h2>Contact</h2>
+
+</div>
+
+<div class="contact-box">
+
+<a href="https://github.com/FLAMESWorks">
+
+GitHub
+
+</a>
+
+<a href="#">
+
+Discord
+
+</a>
+
+<a href="#">
+
+Roblox Profile
+
+</a>
 
 </div>
 
@@ -337,11 +347,11 @@ Gamepass shop, developer products, upgrades, and clean UI.
 
 <footer>
 
-© 2026 FLAMESWorks • Roblox Scripter
+© 2026 FLAMESWorks
 
 </footer>
 
-</div>
+<script src="script.js"></script>
 
 </body>
 </html>
